@@ -1,0 +1,405 @@
+@import "animation.css";
+@import "root.css";
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto';
+  letter-spacing: 0.1em;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+
+}
+
+body {
+  overflow: hidden;
+}
+
+
+.container {
+  /* position: fixed; */
+  background-color: var(--bg);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* min-width: 372px; */
+}
+
+
+.calendar {
+  box-sizing: border-box;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  padding: 24px;
+}
+
+.container > * {
+  border-radius: var(--border-radius);
+  background-color: var(--dark-gray);
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  
+}
+
+.month i {
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.date {
+  display: flex;
+  font-size: 18px;
+  /* font-weight: bold; */
+}
+
+.weekday {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.days {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 16px;
+  flex: 2;
+  height: auto;
+  gap: 8px 16px;
+}
+
+.days div {
+  letter-spacing: normal;
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s;
+  z-index: 2;
+}
+
+
+
+.prev-date,
+.next-date {
+  opacity: 0.5;
+}
+
+.today {
+  border: 2px solid var(--light-green);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 2;
+  overflow: hidden;
+}
+
+.habits {
+  height: 80%;
+  border-radius: var(--border-radius);
+  background-color: var(--dark-gray);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.habits > li {
+  background-color: var(--light-gray);
+  border-radius: var(--border-radius);
+  height: 21%;
+  margin-bottom: 5%;
+  flex-shrink: 0;
+  font-size: 16px;
+  /* font-style: italic; */
+  display: flex;
+  /* align-items: stretch; */
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  padding: 0 30px;
+  scroll-snap-align: start;
+  transition: transform 100ms ease-in-out;
+  transition: vorder 50ms linear;
+}
+
+.touch {
+  transform: scale(.9);
+}
+
+.complete {
+  border: 2px solid var(--light-green);
+}
+
+.check {
+  border: 2px solid var(--light-green);
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: var(--bg);
+  border-radius: var(--border-radius);
+  min-height: 16px;
+}
+
+.progress-bar > .bar {
+  background-color: var(--light-green);
+  border-radius: inherit;
+  width: 69%;
+  height: 100%;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  z-index: 2;
+  background-color: var(--dark-gray);
+}
+
+.add-habit {
+  background-color: var(--wet-ass);
+  border-radius: 100px;
+  font-size: 32px;
+  font-weight: bold;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: normal;
+  cursor: pointer;
+  transition: all 0.25s linear;
+}
+
+
+
+.add-habit > img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  animation: opacityToOne 0.25s lienear;
+}
+
+.to-save {
+  transition: all 0.25s linear;
+  width: 80%;
+  background-color: var(--light-green);
+  border-radius: 100px;
+}
+
+/* .add-habit span {
+  transform: opacity 0.2s;
+}
+
+.opcity-to-zero {
+  opacity: 0;
+} */
+
+.edit {
+  position: absolute;
+  background-color: var(--dark-gray);
+  height: calc(100vh * 2/16);
+  /* display: none; */
+  width: 100vw;
+  max-width: var(--max-width);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  row-gap: 10%;
+  box-sizing: border-box;
+  padding: 0 16px;
+  font-size: 24px;
+  bottom: 0; 
+  transition: height 0.25s linear;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  z-index: 0;
+}
+
+.edit.appear {
+  height: 39vh;
+  
+}
+
+
+.close {
+  /* background-color: var(--dark-gray); */
+  width: 0; /* 40px */
+  font-size: 0; /* 32px */
+  align-self: flex-end;
+  cursor: pointer;
+  transition: all 0.25s linear;
+  /* margin-right: 20%; */
+}
+
+.close.appear {
+  width: 40px;
+  font-size: 32px;
+}
+
+.close img {
+  width: inherit;
+}
+
+input {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  width: 100%;
+}
+
+#habit-name {
+  background-color: var(--wet-ass);
+  border-radius: var(--border-radius);
+  width: 100%;
+  color:rgba(255, 255, 255, 1);
+  padding: 0.3em;
+  font-style: italic;
+  
+ }
+
+
+ .edit .notificate,
+ .edit .term {
+  display: flex;
+  color: black;
+  width: 0;
+  height: 0;
+  font-size: large;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: height 0.25s, width 0.25s;
+  text-align: center;
+ }
+
+ .edit .notificate.appear,
+ .edit .term.appear {
+  width: 40px;
+  height: 40px;
+ }
+
+.edit .notificate img {
+  width: 60%;
+}
+
+ .wrap span {
+   display: inline-block;
+ }
+ 
+
+ .edit .wrap {
+   display: flex;
+   width: 60%;
+   justify-content: space-between;
+ }
+
+
+ @media screen and (min-width: 372px) {
+     /* body {
+    max-width: 390px;
+    margin: auto;
+  } */
+  .habits::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .habits {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+ }
+@media screen and (max-width: 372px) {
+  
+  .month i {
+    font-size: 16px;
+  }
+
+  .date {
+    font-size: 14px;
+  }
+
+  .days {
+    font-size: 12px;
+    gap: 8px 32px;
+  }
+
+  .days div {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width: 355px) {
+
+  .days div {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* @media screen and (max-width: 353px) {
+
+  .days {
+    font-size: 14px;
+    gap: 8px 24px;
+  }
+
+  .days div {
+    width: 32px;
+    height: 32px;
+  }
+
+} */
+
+@media screen and (max-width: 354px) {
+  
+  .month i {
+    font-size: 16px;
+  }
+
+  .date {
+    font-size: 14px;
+  }
+
+  .days {
+    font-size: 12px;
+    gap: 8px 16px;
+  }
+
+  .days div {
+    width: 24px;
+    height: 24px;
+  }
+}

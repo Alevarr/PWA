@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+  <link rel="manifest" href="manifest.json">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="calendar">
+      <div class="month">
+        <span class="date"></span>
+        <div class="i-container">
+          <i class="fas fa-angle-left prev"></i>
+          <i class="fas fa-angle-right next"></i>
+        </div>
+        
+      </div>
+      <div class="days">
+        <div class="weekday">Sun</div>
+        <div class="weekday">Mon</div>
+        <div class="weekday">Tue</div>
+        <div class="weekday">Wed</div>
+        <div class="weekday">Thu</div>
+        <div class="weekday">Fri</div>
+        <div class="weekday">Sambody once told me the</div>
+        
+      </div> 
+    </div>
+    <div class="menu">
+      <ul class="habits">
+        <!-- <li>
+            <span class="name">Нашествие абобусов</span>
+            <span class="progress">60%</span>
+            <div class="progress-bar">
+              <div class="bar" style="width: 60%"></div>
+            </div>
+        </li>
+        <li>
+          <span class="name">Импостерить</span>
+          <span class="progress">20%</span>
+          <div class="progress-bar">
+            <div class="bar" style="width: 20%"></div>
+          </div>
+      </li> -->
+
+      </ul>
+      <div class="button-container">
+        <div class="add-habit"><img src="images/plus.png" alt="Плюс" srcset=""></div>
+      </div>
+      <div class="edit">
+        <div class="close"><img src="images/cross.png" alt="Закрыть" srcset=""></div>
+        <div class="wrap">
+          <div class="notificate" id="pizda"><img src="images/bell.png" alt="Уведомление" srcset=""></div>
+          <input class="term" type="text" autocomplete="off" placeholder="21">
+          <!-- <div class="term"><span>21</span></div> -->
+        </div>
+        <input id = "habit-name" type="text" autocomplete="off" placeholder="Название">
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+  <script type="module" src="script.js"></script>  
+</body>
+</html>

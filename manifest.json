@@ -1,0 +1,17 @@
+{
+  "name": "Habit Tracker",
+  "short_name": "HT",
+  "theme_color": "#050B17",
+  "background_color": "#050B17",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "/appIcons/aboba.svg",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+
+  ]
+}

@@ -1,0 +1,19 @@
+@import "root.css";
+
+@keyframes appear {
+  from {
+    top: 61vh;
+  }
+  to {
+    top: calc(100vh * 2 / 3);
+  }
+}
+
+@keyframes opacityToOne {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
